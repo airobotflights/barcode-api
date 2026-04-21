@@ -11,10 +11,8 @@ pdfjsLib.GlobalWorkerOptions.workerSrc = `${pdfjsBaseUrl}/legacy/build/pdf.worke
 
 const fastify = Fastify({
     logger: false,
-    bodyLimit: 50 * 1024 * 1024,
+    bodyLimit: 200 * 1024 * 1024,
 });
-
-const PORT = 6666;
 
 fastify.server.setTimeout(500000);
 
@@ -105,6 +103,8 @@ fastify.post('/api/barcode', async (request, reply) => {
 
         void pdf.cleanup();
 
+        console.log(out);
+
         return {
             found: out.length > 0,
             results: out,
@@ -118,5 +118,4 @@ fastify.post('/api/barcode', async (request, reply) => {
     }
 });
 
-await fastify.listen({ port: PORT, host: '0.0.0.0' });
-console.log(`Listening on http://127.0.0.1:${PORT}`);
+await fastify.listen({ port: 6666, host: '0.0.0.0' });
