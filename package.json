@@ -1,0 +1,20 @@
+{
+  "name": "barcode-api",
+  "version": "1.0.0",
+  "main": "barcode.js",
+  "type": "module",
+  "scripts": {
+    "start": "node barcode.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@napi-rs/canvas": "^0.1.99",
+    "fastify": "^5.8.5",
+    "pdfjs-dist": "^5.6.205",
+    "unpdf": "^1.6.0",
+    "zxing-wasm": "^3.0.2"
+  }
+}
