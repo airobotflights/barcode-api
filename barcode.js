@@ -118,4 +118,5 @@ fastify.post('/api/barcode', async (request, reply) => {
     }
 });
 
-await fastify.listen({ port: 6666, host: '0.0.0.0' });
+// The browser servers open 4000-4999 to the fleet; 6666 was the Mac mini's port.
+await fastify.listen({ port: Number(process.env.PORT ?? 6666), host: '0.0.0.0' });
